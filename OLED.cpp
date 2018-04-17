@@ -384,11 +384,15 @@ void COLED::writeFusionInt(const char* source, const char* dest, const char* typ
     display.clearDisplay();
     display.fillRect(0,OLED_LINE2,display.width(),display.height(),BLACK);
 
-    display.setCursor(0,OLED_LINE4);
+    display.setCursor(0,OLED_LINE3);
     display.printf("%s %.10s", type, source);
 
-    display.setCursor(0,OLED_LINE5);
+    display.setCursor(0,OLED_LINE4);
     display.printf("  %.10s", dest);
+	
+    display.setCursor(0,OLED_LINE6);
+    display.printf("%s",m_ipaddress.c_str());
+	
 
     OLED_statusbar();
     display.display();
@@ -398,7 +402,7 @@ void COLED::clearFusionInt()
 {
     display.fillRect(0, OLED_LINE2, display.width(), display.height(), BLACK);
 
-    display.setCursor(40,OLED_LINE4);
+    display.setCursor(40,OLED_LINE3);
     display.print("Listening");
 	
 	display.setCursor(0,OLED_LINE6);
